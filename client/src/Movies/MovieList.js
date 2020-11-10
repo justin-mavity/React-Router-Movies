@@ -1,7 +1,9 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 export default function MovieList(props) {
   const { movies } = props;
+
   return (
     <div className="movie-list">
       {movies.map((movie) => (
@@ -13,13 +15,16 @@ export default function MovieList(props) {
 
 function MovieDetails(props) {
   const { title, director, metascore, id } = props.movie;
+
   const history = useHistory();
 
   const routeToMovie = () => {
-    history.push(`movies/${id}`);
+    console.log(history);
+    history.push(`/movies/${id}`);
   };
+
   return (
-    <div onClick={() => routeToMovie()} className="movie-card">
+    <div onClick={routeToMovie} className="movie-card">
       <h2>{title}</h2>
       <div className="movie-director">
         Director: <em>{director}</em>

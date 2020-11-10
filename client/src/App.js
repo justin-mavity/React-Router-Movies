@@ -40,8 +40,8 @@ export default function App() {
         }
       />
       <Switch>
-        <Route path={"movies/:id"}>
-          <Movie movie={movieList} />
+        <Route path={"/movies/:id"}>
+          <Movie movies={movieList} />
         </Route>
         <Route path={"/"}>
           <MovieList movies={movieList} />

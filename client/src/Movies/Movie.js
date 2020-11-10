@@ -5,6 +5,8 @@ import MovieList from "./MovieList";
 
 export default function Movie(props) {
   const [movie, setMovie] = useState();
+  const { movies } = props;
+
   const { url, path } = useRouteMatch();
 
   const { id } = useParams();
@@ -18,7 +20,7 @@ export default function Movie(props) {
       .then((response) => {
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
-        setMovie(response.data.stars);
+        setMovie(response.data);
       })
       .catch((error) => {
         console.error(error);
