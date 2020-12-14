@@ -5,11 +5,16 @@ import MovieList from "./MovieList";
 
 export default function Movie(props) {
   const [movie, setMovie] = useState();
-  const { movies } = props;
+  const [list, setList] = useState([]);
+  const { movies, addToSaved } = props;
 
   const { url, path } = useRouteMatch();
 
   const { id } = useParams();
+
+  const add = (id) => {
+    setList(id);
+  };
 
   // let id = 1;
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
@@ -56,7 +61,9 @@ export default function Movie(props) {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={add}>
+        Save
+      </div>
     </div>
   );
 }
